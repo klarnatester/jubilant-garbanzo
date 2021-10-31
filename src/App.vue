@@ -3,6 +3,7 @@
     <div>{{timerValue}}</div>
     <button v-on:click="startTimer">Start timer</button>
     <button v-on:click="stopTimer">Stop timer</button>
+    <button v-on:click="resetTimer">Reset timer</button>
   </div>
 </template>
 
@@ -24,6 +25,10 @@ export default {
     },
     stopTimer() {
       clearInterval(this.timerId);
+    },
+    resetTimer() {
+      clearInterval(this.timerId);
+      this.timerValue = 0;
     },
   },
 }
