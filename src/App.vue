@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <div>{{timerValue}}</div>
+    <div :class="{'higher-font-size': increaseFontSize}">{{timerValue}}</div>
     <button v-on:click="startTimer">Start timer</button>
     <button v-on:click="stopTimer">Stop timer</button>
     <button v-on:click="resetTimer">Reset timer</button>
+    <button v-on:click="increaseFontsize">Increase Font Size</button>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ export default {
     return {
       timerValue: 0,
       timerId: null,
+      increaseFontSize: false,
     }
   },
   components: {},
@@ -29,6 +31,9 @@ export default {
     resetTimer() {
       clearInterval(this.timerId);
       this.timerValue = 0;
+    },
+    increaseFontsize() {
+      this.increaseFontSize = true;
     },
   },
 }
@@ -53,5 +58,8 @@ export default {
       color: #42b983;
     }
   }
+}
+.higher-font-size {
+  font-size: 24px;
 }
 </style>
